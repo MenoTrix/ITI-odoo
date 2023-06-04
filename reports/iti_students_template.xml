@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <!--         
+    <template id="iti_student_report">
+        <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <table class="table table-bordered">
+                            <tr>
+                                
+                                <th>salary</th>
+                                <th>image</th>
+                            </tr>
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td><span t-field="o.image"/></td>
+                                    
+                                </tr>
+                        <t</th>
+                       </table>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template> -->
+
+    <template id="iti_students_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-call="o.name"/>>
+                </t>
+            </t>
+        </t>
+    </template>
+  </data>
+</odoo>

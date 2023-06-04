@@ -1,0 +1,98 @@
+<odoo>
+    <data>
+    
+        <record id="iti_student_action" model="ir.actions.act_window">
+            <field name="name">ITI</field>
+            <field name="res_model">iti.student</field>
+        </record>
+
+        <menuitem
+            id="iti_student_root"
+            name="ITI"
+           />
+           <menuitem
+            id="iti_student_list"
+            name="Students"
+            parent="iti_student_root"
+            action="iti_student_action"/>
+    
+        <record id="iti_student_view_tree" model="ir.ui.view">
+            <field name="name">iti_student.view.tree</field>
+            <field name="model">iti.student</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"></field>
+                    <field name="salary"></field>
+                    <field name="tax"></field>
+                    <field name="net_salary"></field>
+                    <field name="gender"></field>
+                    <field name="birth_date"></field>
+                    <field name="track_id"></field>
+                    <field name="track_capacity"></field>
+
+                </tree>
+            </field>
+        </record>
+        <record id="iti_student_view_form" model="ir.ui.view">
+            <field name="name">iti_student.view.form</field>
+            <field name="model">iti.student</field>
+            <field name="arch" type="xml">
+                <form string="">
+                <header>
+
+               <button string="First Interview" name="change_state" type="object" states="applied"/>
+               <button string="Second Interview" name="change_state" type="object" states="first"/>
+               <button string="Passed Interview" name="change_pass" type="object" states="second"/>
+               <button string="Rejected Interview" name="change_reject" type="object" states="second"/>
+               <button string="Back to Applied" name="change_state" type="object" states="passed,rejected"/>
+                </header>
+                    <sheet>
+                    <group >
+                        
+                  
+                        <group string="Personal Info">
+                        <field name="name"></field>
+                        <field name="email"></field>
+                        <field name="salary"></field>
+                        <field name="net_salary"></field>
+
+                        <field name="tax"></field>
+
+                        <field name="gender" ></field>
+                        <field name="birth_date" 
+                        attrs="{'invisible':[('gender','=','f')]}"
+                        ></field>
+                        <field name="address"></field>
+                        <field name="accepted"></field>
+                        <field name="level"></field>
+                        <field name="login_time"></field>
+                        <field name="state"></field>
+                        <!-- <field name="track_id" domain="[('is_open','=',True)]"></field> -->
+                        <field name="track_id"></field>
+                        <field name="track_capacity"></field>
+                        <field name="skill_id" widget="many2many_tags"></field>
+                        </group>
+                        <group string="Image">
+                        <field name="image" widget="image"></field>
+                        </group>
+                        <notebook>
+                            <page  string="CV">
+                            <field name="cv"></field>
+                            </page>
+                        </notebook>
+                      </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+    
+</odoo>
+
+
+                <!-- <button string="First Interview" name="change_state" type="object" states="applied"/>
+                <button string="Second Interview" name="change_state" type="object" states="first" />
+                <button string="Passed Interview" name="change_pass" type="object" states="second" />
+                <button string="Rejected From Interview" name="change_reject" type="object" states="second"/>
+                <button string="Back to Applied" name="change_state" type="object" states="passed,rejected"/>
+                 -->

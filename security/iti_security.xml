@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+        <record id="iti_group_category" model="ir.module.category">
+            <field name="name">ITI</field>
+        </record>
+        <record id="iti_normal_group" model="res.groups">
+            <field name="name">ITI Normal User</field>
+            <field name="category_id" ref="iti_group_category"></field>
+        </record>
+    
+        <record id="iti_manager_group" model="res.groups">
+            <field name="name">ITI Manager User</field>
+            <field name="category_id" ref="iti_group_category"></field>
+            
+
+        </record>
+    
+    </data>
+    
+
+</odoo>
